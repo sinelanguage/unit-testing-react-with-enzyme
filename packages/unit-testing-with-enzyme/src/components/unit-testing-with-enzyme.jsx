@@ -17,16 +17,22 @@ export default class UnitTestingWithEnzyme extends React.Component {
       title: "Unit Testing With Enzyme"
     };
   }
+  changeTitle() {
+    return this.setState({
+      title: "New Title"
+    });
+  }
   renderChildren() {
-    // return this.props.numberOfTimesToRenderChild.map(
-    //   (num) => (<li key={num}>I am {num}</li>)
-    // )
-    return null;
+    return this.props.toMapOverAndRender.map(
+      (item, i) => (<li className="myClassName" key={i}>I am {item}</li>)
+    );
   }
   render() {
     return (
       <div className={styles.container}>
         <h4>{this.state.title}</h4>
+        <ul>{this.renderChildren()}</ul>
+        <button onClick={this.changeTitle.bind(this)}>Change Title</button>
       </div>
     );
   }
@@ -35,7 +41,7 @@ export default class UnitTestingWithEnzyme extends React.Component {
 UnitTestingWithEnzyme.displayName = "UnitTestingWithEnzyme";
 
 UnitTestingWithEnzyme.propTypes = {
-  numberOfTimesToRenderChild: propTypes.number
+  toMapOverAndRender: propTypes.array
 };
 
 UnitTestingWithEnzyme.defaultProps = {};

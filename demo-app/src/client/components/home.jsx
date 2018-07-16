@@ -12,11 +12,7 @@ const locale = "en";
 
 export class Home extends React.Component {
   render() {
-    //
-    // this is data for the bundled demo
-    // please remove it when working on your
-    // own component
-    //
+    const toMapOverAndRender = ["one", "two", "three"];
     return (
       <IntlProvider locale={locale}>
         <div className={custom.demoAppContainer}>
@@ -24,7 +20,7 @@ export class Home extends React.Component {
           Hello from {" "}
           <a href="https://github.com/electrode-io">{"Electrode"} <img src={electrodePng} /></a>
           </h2>
-          <UnitTestingWithEnzyme />
+          <UnitTestingWithEnzyme toMapOverAndRender={toMapOverAndRender} />
       </div>
       </IntlProvider>
     );
